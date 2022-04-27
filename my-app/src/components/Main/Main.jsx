@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Form from './components/Main/Form'
-import Home from './components/Main/Home'
-import News from './components/Main/News'
-import {Route, Routes} from 'react-router-dom'
+import Form from './Form';
+import Home from './Home';
+import News from './News';
+import {Route, Routes} from 'react-router-dom';
 
 class Main extends Component {
   render() {

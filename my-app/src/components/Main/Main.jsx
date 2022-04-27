@@ -7,11 +7,14 @@ import {Route, Routes} from 'react-router-dom';
 class Main extends Component {
   render() {
     return <div>
-      <Routes>
-      <Route element={<Home/>} path='/'/>
-      <Route element={<Form/>} path='/form'/>
-      <Route element={<News/>} path='/news-list'/>
-      </Routes>
+   
+
+        <Routes>
+          <Route element={<Home/>} path='/'/>
+          <Route element={<Form/>} path='/form'/>
+          <Route element={<News/>} path='/news-list'/>
+        </Routes>
+
 
     </div>;
   }

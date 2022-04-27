@@ -4,9 +4,12 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 import {BrowserRouter} from 'react-router-dom';
 
+/* import {useState} from 'react'; */
+
 
 
 function App() {
+
   return (
     <div>
       <BrowserRouter>

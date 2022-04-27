@@ -3,35 +3,37 @@ import {userContext} from '../../../context/userContext';
 
 class Home extends Component {
 
-  static contextType = userContext //aquí habrá un context consumer----internamente hace un this.context
-
   constructor(props) {
     super(props)
   
     this.state = {
-       user:""
+       user: ""
     }
-
   }
 
-
-  login = (event) => {
-
-    event.preventDefault(); //esto para el formulario para leer los inputs
+  register = (event) => {
+    event.preventDefault(); 
     const user = event.target.user.value
     this.setState({user})
-    this.context.login(user)
+    
+     //Esto me lo trae vaciooooo 
 
   }
+  
 
   render() {
+    const data = this.state.user
+    
+    console.log('c.log de data en render: ',data);
     return <div>
-      <form onSubmit={this.login}>
+      <userContext.Provider value={data}>
+        <form onSubmit={this.register}>
           <label htmlFor="user">Nombre usuario:</label> <br />
           <input type="text" name="user"id="user"/> <br />
           <input type="submit" value="Enviar"/>
         </form>
-    </div>;
+      </userContext.Provider>
+    </div>
   }
 }
 

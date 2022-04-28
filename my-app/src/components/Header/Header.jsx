@@ -1,29 +1,31 @@
 import React, { Component } from "react";
 import Nav from './Nav';
 import logo from '../../assets/logo.svg';
-import './Header.css'
+import './Header.css';
 import {userContext} from '../../context/userContext';
 
 class Header extends Component {
 
-  static contextType = userContext
+/*   static contextType = userContext */
 
   render() {
-    return <div className="header">
-
-      <img src={logo} alt="logo newspaper" className="logo"/>
-      <Nav/>
-      <div>
-        <userContext.Consumer>
-        {(data) =>
-          data? 
-            <>
-              <p>Hola, {data}</p>
-            </>:""
-        }
-        </userContext.Consumer>
-      </div>
-    </div>;
+    return (
+      <header className="header">
+        <img src={logo} alt='logo' className="logo"></img>
+        <Nav/>
+        <div className='user'>
+          <userContext.Consumer>
+          {({user,logout}) => 
+              user?
+                <>
+                  <p>Hola, {user}</p>
+                  <button onClick={logout}>Logout</button>
+                </>:""
+          }
+          </userContext.Consumer>
+        </div>
+      </header>
+    )
   }
 }
 

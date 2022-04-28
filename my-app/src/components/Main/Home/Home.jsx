@@ -3,6 +3,8 @@ import {userContext} from '../../../context/userContext';
 
 class Home extends Component {
 
+  static contextType = userContext
+
   constructor(props) {
     super(props)
   
@@ -10,30 +12,24 @@ class Home extends Component {
        user: ""
     }
   }
-
   register = (event) => {
     event.preventDefault(); 
     const user = event.target.user.value
-    this.setState({user})
-    
-     //Esto me lo trae vaciooooo 
 
+    this.setState({user})
+    this.context.login(user)
   }
-  
 
   render() {
-    const data = this.state.user
-    
-    console.log('c.log de data en render: ',data);
-    return <div>
-      <userContext.Provider value={data}>
+
+    return (
+      <>
         <form onSubmit={this.register}>
           <label htmlFor="user">Nombre usuario:</label> <br />
           <input type="text" name="user"id="user"/> <br />
           <input type="submit" value="Enviar"/>
         </form>
-      </userContext.Provider>
-    </div>
+      </>)
   }
 }
 

@@ -1,0 +1,25 @@
+@import '../utils/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $menu-color;
+    height: 4.5rem;
+;
+
+     & > .user{
+        display: flex;
+        & > p {
+            color: $text-color;
+            margin-right: $spacing-md;
+        }
+    } 
+    & > img {
+        width: 7rem;
+    }
+
+}

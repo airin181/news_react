@@ -3,6 +3,7 @@ import Nav from './Nav';
 import logo from '../../assets/logo.svg';
 import './Header.css';
 import {userContext} from '../../context/userContext';
+import Button from '@mui/material/Button';
 
 class Header extends Component {
 
@@ -18,8 +19,8 @@ class Header extends Component {
           {({user,logout}) => 
               user?
                 <>
-                  <p>Hola, {user}</p>
-                  <button onClick={logout}>Logout</button>
+                  <p>Hey, {user}</p>
+                  <Button variant="contained" onClick={logout}>Logout</Button>
                 </>:""
           }
           </userContext.Consumer>

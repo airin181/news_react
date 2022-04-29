@@ -1,0 +1,14 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+body{
+    background-color: $background-color;
+}
+
+.form{
+    @include column;
+   
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+}

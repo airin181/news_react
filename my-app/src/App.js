@@ -5,10 +5,11 @@ import Footer from './components/Footer';
 import {BrowserRouter} from 'react-router-dom';
 import {useState} from 'react';
 import {userContext} from './context/userContext';
+import './styles/styles.scss'
 
 
 function App() {
-  const [user, setUser] = useState("alvaru"); //estado --> useState lee "user" y el string de dentro lo coge setUser
+  const [user, setUser] = useState(""); //estado --> useState lee "user" y el string de dentro lo coge setUser
 
   //login
   const login = (name) => {
@@ -27,7 +28,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='App'>
       <BrowserRouter>
       <userContext.Provider value={data}>
       <Header/>

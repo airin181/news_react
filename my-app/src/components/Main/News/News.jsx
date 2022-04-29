@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Card from './Card';
-import axios from 'axios'; 
+/* import Card from './Card';
+import axios from 'axios';  */
+
 
 
 class News extends Component {
@@ -36,15 +37,7 @@ class News extends Component {
     return (
       <div>
         <h1>News</h1>
-         {/* {
-          this.state.newsList.map(news =>
-            <section>
-              <p>{news.title}</p>
-              <p>{news.subtitle}</p>
-              <p>{news.body}</p>
-            </section>
-          )
-        }  */}
+        
       </div>
 
     )

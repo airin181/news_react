@@ -10,7 +10,7 @@ class News extends Component {
     super(props)
 
    this.state = {
-      newsList: [],
+      newsList: "",
     } 
 
   }
@@ -24,7 +24,6 @@ class News extends Component {
 
       const selectedNews = selectedData.map(news => {
           return {
-            
               headline: news.headline.main,
               abstract: news.abstract,
               author: news.byline.original,
@@ -33,7 +32,7 @@ class News extends Component {
           }
       })
 
-        this.setState({newsList: [selectedNews, ...this.props.newsCreated]})           
+        this.setState({newsList: selectedNews})           
   }
 
   removeCard = (i) => {
@@ -41,22 +40,28 @@ class News extends Component {
   this.setState({newsList: remainingNews});
 }
 
+
   render() {
-    const allNews = this.state.newsList
+    const newsCreated = this.props.value.newsForm; //array de obj
+    console.log('newsCreated en NEWS: ', newsCreated);
+    const allNews = [...newsCreated, ...this.state.newsList] //método spread para pasar de array a obj
+    console.log('allNews en NEWS: ', allNews);
+   
+   // console.log(data); 
 
     return (
-      <div>
+      <>
          <h1>Be in tune with the latest news!</h1>
          <section>
            {
            allNews.map((news, i) => <Card news={news} key={uuidv4()} remove={() => this.removeCard(i)}/>)
            }
+         </section>
 
-      </section>
-      </div>
-
-    )
+      </>
+      )
   }
 }
 
 export default News;
+

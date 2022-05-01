@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Form extends Component {
 
@@ -11,23 +12,21 @@ class Form extends Component {
     saveNews = (event) => {
   
       event.preventDefault(); //esto para el formulario para leer los inputs
-        const title = event.target.title.value
-        const subtitle= event.target.subtitle.value
-        const body = event.target.body.value
 
-        const newsForm = {title,subtitle,body}
+        const newsForm = {        
+          headline: event.target.headline.value,
+          author: event.target.author.value,
+          abstract: event.target.abstract.value,
+          date: event.target.date.value,
+          url: event.target.url.value
+        }
 
-        this.props.value(newsForm)
-
-      this.paintNews()
-      this.redirecting()
+        console.log('nueva noticia introducida: ',newsForm); //obj
+        this.props.value(newsForm) // = saveNews(newsForm)
+        
+        
+       
     }
-
-   redirecting = () => { 
-      window.location.href = "http://localhost:3000/news"
-    }
-
-    
 
   render() {
 
@@ -35,15 +34,26 @@ class Form extends Component {
 
       <h1>Register a publication</h1>
       <form onSubmit={this.saveNews}>
-        <label htmlFor="title">Title:</label> <br />
-        <input type="text" name="title"id="title"/> <br />
-        <label htmlFor="subtitle">Subtitle:</label> <br />
-        <input type="text" name="subtitle"id="subtitle"/> <br />
-        <label htmlFor="body">Body of the piece:</label> <br />
-        <input type="textarea" name="body"id="body"/> <br />
+
+        <label htmlFor="headline">Headline:</label> <br />
+        <input type="text" name="headline"id="headline"/> <br />
+
+        <label htmlFor="author">Author:</label> <br />
+        <input type="text" name="author"id="author"/> <br />
+
+        <label htmlFor="abstract">Abstract:</label> <br />
+        <input type="textarea" name="abstract"id="abstract"/> <br />
+
+        <label htmlFor="date">Date:</label> <br />
+        <input type="text" name="date"id="date"/> <br />
+
+        <label htmlFor="url">URL:</label> <br />
+        <input type="text" name="url"id="url"/> <br />
 
         <input type="submit" value="Enviar"/> 
        </form>
+
+       <Link to="/news">Take me to News</Link>
 
     </div>)
   }

@@ -14,21 +14,20 @@ export class Main extends Component {
    }
  }
 
-  render() {
+ //form-newsList (props)
+ render() {
+    const saveNews = (input) =>{
+      this.setState({newsForm: [...this.state.newsForm, input]}) //input -> objeto... estado: array
+    } 
+    console.log('clog de this.state.newsForm en MAIN: ', this.state.newsForm);
 
-  //form-newsList (props)
-  const saveNews = (input) =>{
-    this.setState({newsForm: input}) //input es un objeto
-  } 
-
-  const newsForm = this.state.newsForm
-
-    return (<div>
+    return (
+    <div>
    
         <Routes>
           <Route element={<Home/>} path='/'/>
           <Route element={<Form value={saveNews}/>} path='/form'/>
-          <Route element={<News value={newsForm} />} path='/news'/>
+          <Route element={<News value={this.state}/>} path='/news'/>
         </Routes>
 
     </div>);

@@ -22,15 +22,12 @@ function App() {
     setUser("");
   } 
 
-  
   //(context)
   const data = {
     user,
     login,
     logout 
   }
-  
- 
 
   return (
     <div className='App'>

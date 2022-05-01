@@ -10,22 +10,27 @@ import './styles/styles.scss'
 
 function App() {
   const [user, setUser] = useState(""); //estado --> useState lee "user" y el string de dentro lo coge setUser
+ 
 
-  //login
+  //login (context)
   const login = (name) => {
     setUser(name)
   }
 
-//logout
+  //logout (context)
   const logout = () => {
     setUser("");
   } 
 
+  
+  //(context)
   const data = {
     user,
     login,
-   logout 
+    logout 
   }
+  
+ 
 
   return (
     <div className='App'>

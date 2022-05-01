@@ -1,0 +1,14 @@
+@import './../utils/mixins.scss'; 
+
+.bknews-img{
+    width: 300px;
+}
+
+.card{
+ @include flex
+}
+
+.css-1t6e9jv-MuiCardActions-root{
+    
+    justify-content: center;
+}

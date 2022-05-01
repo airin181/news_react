@@ -8,3 +8,9 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+@mixin flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

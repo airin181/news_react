@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+/* import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField'; */
 
 class Form extends Component {
 
@@ -30,10 +35,11 @@ class Form extends Component {
 
   render() {
 
-    return (<div>
+    return (
+    <div>
 
-      <h1>Register a publication</h1>
-      <form onSubmit={this.saveNews}>
+      <h1>Register a new publication</h1>
+{/*       <form onSubmit={this.saveNews} className="form">
 
         <label htmlFor="headline">Headline:</label> <br />
         <input type="text" name="headline"id="headline"/> <br />
@@ -51,9 +57,73 @@ class Form extends Component {
         <input type="text" name="url"id="url"/> <br />
 
         <input type="submit" value="Enviar"/> 
-       </form>
+        <Link to="/news">Take me to News</Link>
+       </form> */}
 
-       <Link to="/news">Take me to News</Link>
+       
+
+
+      <div className="App">
+      <form onSubmit={this.saveNews} className="form">
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="text"
+          label="Headline"
+          variant="outlined"
+          name="headline"
+        />
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="text"
+          label="Author"
+          variant="outlined"
+          name="author"
+        />
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="text"
+          label="URL"
+          variant="outlined"
+          name="url"
+        />
+   
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="date"
+          label=""
+          variant="outlined"
+          name="date"
+        />
+        <TextField
+          style={{ width: "400px", margin: "5px" }}
+          type="text"
+          label="Abstract"
+          name="abstract"
+          variant="outlined"
+          multiline
+          rows={10}
+        />
+        <br />
+        <div className="div-btn-form">
+
+        <Button variant="contained" color="primary" type="submit">
+          Save
+        </Button>
+        <Button component={Link} to="/news" variant="contained" color="inherit" type="submit">
+        Take me to News
+        </Button>
+
+        </div>
+       
+
+       {/*  <Button component={Link} to="/about" variant="contained" color="primary">
+      About Page
+      </Button>
+        <Link to="/news">Take me to News</Link> */}
+      </form>
+      </div>
+
+
 
     </div>)
   }

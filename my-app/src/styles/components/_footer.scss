@@ -1,9 +1,26 @@
 @import '../utils/variables.scss';
 
-footer {
+ footer {
     background-color: $menu-color;
     color: $text-color;
     bottom: 0;
-    position:absolute;
+   
     width: 100%;
-}
+} 
+
+
+
+.footer {
+    flex-shrink: 0;
+    text-align: center;
+    background-color: #dc1b2f;
+    color: white;
+    bottom: 0;
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+  }
+

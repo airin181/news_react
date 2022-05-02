@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 /* import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField'; */
@@ -36,8 +38,8 @@ class Form extends Component {
     return (
     <div>
 
-      <h1>Register a publication</h1>
-      <form onSubmit={this.saveNews} className="form">
+      <h1>Register a new publication</h1>
+{/*       <form onSubmit={this.saveNews} className="form">
 
         <label htmlFor="headline">Headline:</label> <br />
         <input type="text" name="headline"id="headline"/> <br />
@@ -56,23 +58,73 @@ class Form extends Component {
 
         <input type="submit" value="Enviar"/> 
         <Link to="/news">Take me to News</Link>
-       </form>
+       </form> */}
 
        
 
 
-  {/*       <h1>Register a publication</h1>
-        <div className="form">
-        <TextField id="outlined-basic" label="Headline:" variant="outlined" name='headline' v/>
-        <TextField id="outlined-basic" label="Author:" variant="outlined" name='author'/>
-        <TextField id="outlined-basic" label="Abstract:" variant="outlined" name='abstract'/>
-        <TextField id="outlined-basic" label="Date:" variant="outlined" name='date'/>
-        <TextField id="outlined-basic" label="URL post" variant="outlined" name='url'/>
-    
-        <Button variant="contained" type="submit" className="Button" sx={{margin:1}} onClick={this.saveNews}>Save</Button>
-        <Link to="/news">Take me to News</Link>
+      <div className="App">
+      <form onSubmit={this.saveNews} className="form">
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="text"
+          label="Headline"
+          variant="outlined"
+          name="headline"
+        />
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="text"
+          label="Author"
+          variant="outlined"
+          name="author"
+        />
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="text"
+          label="URL"
+          variant="outlined"
+          name="url"
+        />
+   
+        <TextField
+          style={{ width: "300px", margin: "5px" }}
+          type="date"
+          label=""
+          variant="outlined"
+          name="date"
+        />
+        <TextField
+          style={{ width: "400px", margin: "5px" }}
+          type="text"
+          label="Abstract"
+          name="abstract"
+          variant="outlined"
+          multiline
+          rows={10}
+        />
+        <br />
+        <div className="div-btn-form">
 
-        </div> */}
+        <Button variant="contained" color="primary" type="submit">
+          Save
+        </Button>
+        <Button component={Link} to="/news" variant="contained" color="inherit" type="submit">
+        Take me to News
+        </Button>
+
+        </div>
+       
+
+       {/*  <Button component={Link} to="/about" variant="contained" color="primary">
+      About Page
+      </Button>
+        <Link to="/news">Take me to News</Link> */}
+      </form>
+      </div>
+
+
+
     </div>)
   }
 }

@@ -3,6 +3,9 @@ import Card from './Card/Card';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
+
+
+
 class News extends Component {
   
 
@@ -15,9 +18,18 @@ class News extends Component {
 
   }
 
-  async componentDidMount() {
+/*   handleSearch = (event) =>{
+  
+    event.preventDefault();
+    const topic = event.target.search.value.toLowerCase()
+    console.log('topic:',topic);
+    return topic
+  
+  } */
 
-      const response = await axios.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=P0q0v3lJrsrUROozp6ZbynIJZP64wVkO'/*  + process.env.API_KEY */)
+  async componentDidMount(event) {
+
+      const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${this.handleSearch}&api-key=${process.env.REACT_APP_API_KEY}`)
 
       const data = response.data;
       const selectedData = data.response.docs.slice(0 - 5)
@@ -41,6 +53,7 @@ class News extends Component {
 }
 
 
+
   render() {
     const newsCreated = this.props.value.newsForm; //array de obj
     console.log('newsCreated en NEWS: ', newsCreated);
@@ -52,6 +65,11 @@ class News extends Component {
     return (
       <>
          <h1>Be in tune with the latest news!</h1>
+  {/*       <form onSubmit={(event) =>handleSearch(event)}>
+          <label htmlFor="search"></label>
+          <input type="text" name="search"/>
+          <input type="submit" value="Search"/>
+         </form>  */}
          <section>
            {
            allNews.map((news, i) => <Card news={news} key={uuidv4()} remove={() => this.removeCard(i)}/>)

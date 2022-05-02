@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+/* import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField'; */
+
 class Form extends Component {
 
 
@@ -30,10 +33,11 @@ class Form extends Component {
 
   render() {
 
-    return (<div>
+    return (
+    <div>
 
       <h1>Register a publication</h1>
-      <form onSubmit={this.saveNews}>
+      <form onSubmit={this.saveNews} className="form">
 
         <label htmlFor="headline">Headline:</label> <br />
         <input type="text" name="headline"id="headline"/> <br />
@@ -51,10 +55,24 @@ class Form extends Component {
         <input type="text" name="url"id="url"/> <br />
 
         <input type="submit" value="Enviar"/> 
+        <Link to="/news">Take me to News</Link>
        </form>
 
-       <Link to="/news">Take me to News</Link>
+       
 
+
+  {/*       <h1>Register a publication</h1>
+        <div className="form">
+        <TextField id="outlined-basic" label="Headline:" variant="outlined" name='headline' v/>
+        <TextField id="outlined-basic" label="Author:" variant="outlined" name='author'/>
+        <TextField id="outlined-basic" label="Abstract:" variant="outlined" name='abstract'/>
+        <TextField id="outlined-basic" label="Date:" variant="outlined" name='date'/>
+        <TextField id="outlined-basic" label="URL post" variant="outlined" name='url'/>
+    
+        <Button variant="contained" type="submit" className="Button" sx={{margin:1}} onClick={this.saveNews}>Save</Button>
+        <Link to="/news">Take me to News</Link>
+
+        </div> */}
     </div>)
   }
 }

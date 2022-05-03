@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@mui/material';
 
-import image from "../../../../assets/bknews.jpeg";
 class CardNews extends Component {
 
   constructor(props) {
@@ -10,12 +9,17 @@ class CardNews extends Component {
   }
   render() {
     const {headline,abstract,author,date,url} = this.props.news;
+    console.log('this.props.news: ',this.props.news);
+    //pasar image a string
+    const img =  ("https://static01.nyt.com/").concat(this.props.news.image)
+
+   
     return (
       
       <section className="card">
       <Card sx={{ width: 400, margin:1 }}> 
-
-        <CardMedia component="img" height="140" image={image} alt="breaking news" className="bknews-img"/>
+     
+        <CardMedia component="img" height="140" image={img} alt="breaking news" className="bknews-img"/>
 
         <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -30,11 +34,11 @@ class CardNews extends Component {
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-          {date}
+          <b>Date:</b> {date}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-          {url}
+          <b>URL publication:</b> {url}
         </Typography>
         </CardContent>
 

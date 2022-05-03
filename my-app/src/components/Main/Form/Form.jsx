@@ -2,15 +2,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 /* import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField'; */
 
 class Form extends Component {
 
-
   constructor(props) {
     super(props)
+
+    this.state = {
+      send:false
+   }
 
     }
 
@@ -29,9 +34,9 @@ class Form extends Component {
         console.log('nueva noticia introducida: ',newsForm); //obj
         this.props.value(newsForm) // = saveNews(newsForm)
         
-        
-       
     }
+
+    onClick = () => this.setState({send:true})
 
   render() {
 
@@ -39,30 +44,6 @@ class Form extends Component {
     <div>
 
       <h1>Register a new publication</h1>
-{/*       <form onSubmit={this.saveNews} className="form">
-
-        <label htmlFor="headline">Headline:</label> <br />
-        <input type="text" name="headline"id="headline"/> <br />
-
-        <label htmlFor="author">Author:</label> <br />
-        <input type="text" name="author"id="author"/> <br />
-
-        <label htmlFor="abstract">Abstract:</label> <br />
-        <input type="textarea" name="abstract"id="abstract"/> <br />
-
-        <label htmlFor="date">Date:</label> <br />
-        <input type="text" name="date"id="date"/> <br />
-
-        <label htmlFor="url">URL:</label> <br />
-        <input type="text" name="url"id="url"/> <br />
-
-        <input type="submit" value="Enviar"/> 
-        <Link to="/news">Take me to News</Link>
-       </form> */}
-
-       
-
-
       <div className="App">
       <form onSubmit={this.saveNews} className="form">
         <TextField
@@ -106,24 +87,21 @@ class Form extends Component {
         <br />
         <div className="div-btn-form">
 
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit" onClick={this.onClick}>
           Save
         </Button>
-        <Button component={Link} to="/news" variant="contained" color="inherit" type="submit">
+       
+        
+        <Button component={Link} to="/news" variant="contained" color="inherit" type="submit" >
         Take me to News
         </Button>
-
         </div>
-       
+        {this.state.send?<Stack><Alert severity="success">Publication saved!</Alert>
+        </Stack>:""}
 
-       {/*  <Button component={Link} to="/about" variant="contained" color="primary">
-      About Page
-      </Button>
-        <Link to="/news">Take me to News</Link> */}
+        
       </form>
       </div>
-
-
 
     </div>)
   }

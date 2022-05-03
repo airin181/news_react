@@ -5,7 +5,8 @@
 }
 
 .card{
- @include flex
+ @include flex;
+ text-align: left;
 }
 
 .css-1t6e9jv-MuiCardActions-root{

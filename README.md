@@ -3,7 +3,7 @@
 
 <p>➡️ Mobile first</p>
 <p>➡️ REACT</p>
-<p>➡️ New Your Times API call</p>
+<p>➡️ New York Times API call</p>
 <p>➡️ Routing</p>
 <p>➡️ Material UI
 <p>➡️ SASS
